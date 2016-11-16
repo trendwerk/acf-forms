@@ -36,19 +36,13 @@ final class Rule
 
     public function match($match, $rule, $args)
     {
-        $match = $this->entryHasFieldGroup($args['post_id'], $args['fieldGroup']);
+        $entry = Entry::find($args['post_id']);
+        $match = in_array($args['fieldGroup']['key'], $entry->getFieldGroups());
 
         if ($rule['operator'] === '!=') {
             return ! $match;
         }
 
         return $match;
-    }
-
-    private function entryHasFieldGroup($entryId, $fieldGroup)
-    {
-        $fieldGroups = get_post_meta($entryId, '_fieldGroups', true);
-
-        return in_array($fieldGroup['key'], $fieldGroups);
     }
 }
