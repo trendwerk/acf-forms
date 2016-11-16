@@ -13,13 +13,16 @@ final class Entries
     public function registerPostType()
     {
         register_post_type($this->postType, [
-            'labels'        => [
-                'name'      => __('Entries', 'acf-forms'),
-                'edit_item' => __('View entry', 'acf-forms'),
+            'capabilities'     => [
+                'create_posts' => 'do_not_allow',
             ],
-            'menu_icon'     => 'dashicons-clipboard',
-            'show_ui'       => true,
-            'supports'      => array('title'),
+            'labels'           => [
+                'name'         => __('Entries', 'acf-forms'),
+                'edit_item'    => __('View entry', 'acf-forms'),
+            ],
+            'menu_icon'        => 'dashicons-clipboard',
+            'show_ui'          => true,
+            'supports'         => array('title'),
         ]);
     }
 }
