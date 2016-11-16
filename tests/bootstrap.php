@@ -12,6 +12,8 @@ require_once $testsDir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 tests_add_filter('muplugins_loaded', function () {
+    $plugin = new Plugin();
+    $plugin->init();
 });
 
 // Start up the WP testing environment.
