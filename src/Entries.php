@@ -57,4 +57,9 @@ final class Entries
     {
         remove_meta_box('submitdiv', $this->postType, 'side');
     }
+
+    public function getPostType()
+    {
+        return $this->postType;
+    }
 }

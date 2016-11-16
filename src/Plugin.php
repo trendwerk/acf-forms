@@ -5,12 +5,10 @@ final class Plugin
 {
     public function init()
     {
-        $this->initEntries();
-    }
-
-    private function initEntries()
-    {
         $entries = new Entries();
         $entries->init();
+
+        $handler = new Handler($entries);
+        $handler->init();
     }
 }
