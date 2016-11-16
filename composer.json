@@ -1,0 +1,20 @@
+{
+  "name": "trendwerk/acf-forms",
+  "description": "Helper to use ACF forms in the front-end.",
+  "license": "GPL-3.0+",
+  "authors": [
+    {
+      "name": "Harold Angenent",
+      "email": "harold@trendwerk.nl",
+      "homepage": "https://github.com/haroldangenent"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Trendwerk\\AcfForms\\": "src/"
+    }
+  },
+  "require-dev": {
+    "squizlabs/php_codesniffer": "2.*"
+  }
+}
