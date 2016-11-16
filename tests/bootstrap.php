@@ -1,4 +1,6 @@
 <?php
+use Trendwerk\AcfForms\Plugin;
+
 $testsDir = getenv('WP_TESTS_DIR');
 
 if (! $testsDir) {
@@ -12,6 +14,8 @@ require_once $testsDir . '/includes/functions.php';
  * Manually load the plugin being tested.
  */
 tests_add_filter('muplugins_loaded', function () {
+    require_once __DIR__ . '/../vendor/autoload.php';
+
     $plugin = new Plugin();
     $plugin->init();
 });
