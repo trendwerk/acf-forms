@@ -9,7 +9,7 @@ final class Entries
     {
         add_action('init', [$this, 'registerPostType']);
         add_filter('bulk_actions-edit-' . $this->postType, [$this, 'removeBulkEdit']);
-        add_filter('post_row_actions', [$this, 'setRowActions']);
+        add_filter('post_row_actions', [$this, 'setRowActions'], 10, 2);
         add_action('add_meta_boxes_' . $this->postType, [$this, 'removePublish']);
     }
 
