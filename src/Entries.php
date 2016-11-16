@@ -10,6 +10,7 @@ final class Entries
         add_action('init', [$this, 'registerPostType']);
         add_filter('bulk_actions-edit-' . $this->postType, [$this, 'removeBulkEdit']);
         add_filter('post_row_actions', [$this, 'setRowActions']);
+        add_action('add_meta_boxes_' . $this->postType, [$this, 'removePublish']);
     }
 
     public function registerPostType()
@@ -49,5 +50,10 @@ final class Entries
         ];
 
         return array_merge($newActions, $actions);
+    }
+
+    public function removePublish()
+    {
+        remove_meta_box('submitdiv', $this->postType, 'side');
     }
 }
