@@ -28,7 +28,7 @@ final class Handler
         $fieldGroups = array_map('esc_attr', json_decode(stripslashes($_POST['fieldGroups'])));
 
         if ($fieldGroups) {
-            update_post_meta($postId, 'fieldGroups', $fieldGroups);
+            update_post_meta($postId, '_fieldGroups', $fieldGroups);
         }
     }
 }

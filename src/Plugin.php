@@ -10,5 +10,8 @@ final class Plugin
 
         $handler = new Handler($entries);
         $handler->init();
+
+        $rule = new Rule();
+        $rule->init();
     }
 }
