@@ -23,6 +23,7 @@ final class Entries
                 'name'         => __('Entries', 'acf-forms'),
                 'edit_item'    => __('View entry', 'acf-forms'),
             ],
+            'map_meta_cap'     => true,
             'menu_icon'        => 'dashicons-clipboard',
             'show_ui'          => true,
             'supports'         => array('title'),
