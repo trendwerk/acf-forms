@@ -8,6 +8,8 @@ final class Entries
     public function init()
     {
         add_action('init', [$this, 'registerPostType']);
+        add_filter('bulk_actions-edit-' . $this->postType, [$this, 'removeBulkEdit']);
+        add_filter('post_row_actions', [$this, 'setRowActions']);
     }
 
     public function registerPostType()
@@ -24,5 +26,28 @@ final class Entries
             'show_ui'          => true,
             'supports'         => array('title'),
         ]);
+    }
+
+    public function removeBulkEdit($actions)
+    {
+        unset($actions['edit']);
+
+        return $actions;
+    }
+
+    public function setRowActions($actions, $post)
+    {
+        if (get_post_type($post->ID) !== $this->postType) {
+            return $actions;
+        }
+
+        unset($actions['edit']);
+        unset($actions['inline hide-if-no-js']);
+
+        $newActions = [
+            'view' => '<a href="' . get_edit_post_link($post->ID) . '">' . __('View') . '</a>',
+        ];
+
+        return array_merge($newActions, $actions);
     }
 }
