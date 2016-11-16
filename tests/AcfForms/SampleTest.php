@@ -1,7 +1,7 @@
 <?php
 namespace Trendwerk\AcfForms\Test;
 
-class Sample extends \WP_UnitTestCase
+class SampleTest extends \WP_UnitTestCase
 {
     public function testSample()
     {
