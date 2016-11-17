@@ -10,6 +10,11 @@ final class Form
         $this->options = $options;
     }
 
+    public static function head()
+    {
+        acf_form_head();
+    }
+
     public function render()
     {
         if (! isset($this->options['field_groups'])) {
