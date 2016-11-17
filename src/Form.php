@@ -35,6 +35,8 @@ final class Form
 
     private function getFieldGroupsInput()
     {
-        return '<input type="hidden" name="fieldGroups" value="' . esc_attr(json_encode($this->options['field_groups'])) . '" />';
+        $fieldGroups = esc_attr(json_encode($this->options['field_groups']));
+
+        return '<input type="hidden" name="fieldGroups" value="' . $fieldGroups . '" />';
     }
 }
