@@ -16,7 +16,7 @@ require_once $testsDir . '/includes/functions.php';
 tests_add_filter('muplugins_loaded', function () {
     require_once __DIR__ . '/../vendor/autoload.php';
 
-    $plugin = Plugin::getInstance();
+    $plugin = new Plugin();
     $plugin->init();
 });
 
