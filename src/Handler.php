@@ -3,13 +3,6 @@ namespace Trendwerk\AcfForms;
 
 final class Handler
 {
-    private $entries;
-
-    public function __construct($entries)
-    {
-        $this->entries = $entries;
-    }
-
     public function init()
     {
         add_action('acf/save_post', [$this, 'saveFieldGroups']);
@@ -17,7 +10,7 @@ final class Handler
 
     public function saveFieldGroups($postId)
     {
-        if (get_post_type($postId) != $this->entries->getPostType()) {
+        if (get_post_type($postId) != Entries::POST_TYPE) {
             return;
         }
 

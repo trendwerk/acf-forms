@@ -8,7 +8,7 @@ final class Plugin
         $entries = new Entries();
         $entries->init();
 
-        $handler = new Handler($entries);
+        $handler = new Handler();
         $handler->init();
 
         $rule = new Rule();

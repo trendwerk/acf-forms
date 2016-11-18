@@ -3,19 +3,19 @@ namespace Trendwerk\AcfForms;
 
 final class Entries
 {
-    private $postType = 'entries';
+    const POST_TYPE = 'entries';
 
     public function init()
     {
         add_action('init', [$this, 'registerPostType']);
-        add_filter('bulk_actions-edit-' . $this->postType, [$this, 'removeBulkEdit']);
+        add_filter('bulk_actions-edit-' . self::POST_TYPE, [$this, 'removeBulkEdit']);
         add_filter('post_row_actions', [$this, 'setRowActions'], 10, 2);
-        add_action('add_meta_boxes_' . $this->postType, [$this, 'removePublish']);
+        add_action('add_meta_boxes_' . self::POST_TYPE, [$this, 'removePublish']);
     }
 
     public function registerPostType()
     {
-        register_post_type($this->postType, [
+        register_post_type(self::POST_TYPE, [
             'capabilities'     => [
                 'create_posts' => 'do_not_allow',
             ],
@@ -39,7 +39,7 @@ final class Entries
 
     public function setRowActions($actions, $post)
     {
-        if (get_post_type($post->ID) !== $this->postType) {
+        if (get_post_type($post->ID) !== self::POST_TYPE) {
             return $actions;
         }
 
@@ -55,11 +55,6 @@ final class Entries
 
     public function removePublish()
     {
-        remove_meta_box('submitdiv', $this->postType, 'side');
-    }
-
-    public function getPostType()
-    {
-        return $this->postType;
+        remove_meta_box('submitdiv', self::POST_TYPE, 'side');
     }
 }
