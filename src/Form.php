@@ -25,7 +25,7 @@ final class Form
             'html_before_fields' => $this->getFieldGroupsInput(),
             'new_post'           => [
                 'post_status'    => 'publish',
-                'post_type'      => 'entries',
+                'post_type'      => Entries::POST_TYPE,
             ],
             'post_id'            => 'new_post',
         ]);
