@@ -18,6 +18,11 @@ final class Entry
         return new static($id);
     }
 
+    public function getField($field)
+    {
+        return get_field($field, $this->id);
+    }
+
     public function getFieldGroups()
     {
         return array_filter((array) get_post_meta($this->id, $this->keys['fieldGroups'], true));
