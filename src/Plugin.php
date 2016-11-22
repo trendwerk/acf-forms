@@ -8,7 +8,10 @@ final class Plugin
         $entries = new Entries();
         $entries->init();
 
-        $handler = new Handler();
+        $handler = new Handlers\Handlers([
+            new Handlers\Database(),
+            new Handlers\Notifications(),
+        ]);
         $handler->init();
 
         $rule = new Rule();
