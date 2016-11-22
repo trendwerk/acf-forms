@@ -29,4 +29,13 @@ class EntryTest extends \WP_UnitTestCase
         $entry = Entry::find($this->postId);
         $this->assertEquals([], $entry->getFieldGroups());
     }
+
+    public function testFieldGroups()
+    {
+        $fieldGroups = ['testFieldGroup', 'anotherFieldGroup'];
+
+        $entry = Entry::find($this->postId);
+        $entry->setFieldGroups($fieldGroups);
+        $this->assertEquals($fieldGroups, $entry->getFieldGroups());
+    }
 }
