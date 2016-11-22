@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Handlers;
 
 final class Database implements HandlerInterface
 {
-    public function handle()
+    public function handle($entry)
     {
     }
 }

@@ -3,5 +3,5 @@ namespace Trendwerk\AcfForms\Handlers;
 
 interface HandlerInterface
 {
-    public function handle();
+    public function handle($entry);
 }
