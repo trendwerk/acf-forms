@@ -5,7 +5,33 @@ final class Admin extends Notification
 {
     protected function getBody()
     {
-        return '';
+        $fieldGroups = $this->entry->getFieldGroups();
+        $fields = [];
+
+        foreach ($fieldGroups as $fieldGroup) {
+            $fieldGroupFields = acf_get_fields($fieldGroup);
+
+            if (is_array($fieldGroupFields)) {
+                $fields = array_merge($fieldGroupFields, $fields);
+            }
+        }
+
+        $body = '';
+
+        foreach ($fields as $field) {
+            $value = $this->entry->getField($field['key']);
+
+            if (is_array($value)) {
+                $value = print_r($value, true);
+            }
+
+            $body .= '<p>';
+            $body .= '<strong>' . $field['label'] . '</strong><br />';
+            $body .= $value;
+            $body .= '</p>';
+        }
+
+        return $body;
     }
 
     protected function getRecipient()
