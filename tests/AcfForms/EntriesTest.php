@@ -5,6 +5,8 @@ use Trendwerk\AcfForms\Entries;
 
 class EntriesTest extends \WP_UnitTestCase
 {
+    private $table;
+
     public function setUp()
     {
         parent::setUp();
@@ -14,6 +16,10 @@ class EntriesTest extends \WP_UnitTestCase
         ]);
 
         wp_set_current_user($editorId);
+
+        set_current_screen('edit-' . Entries::POST_TYPE);
+        $GLOBALS['hook_suffix'] = '';
+        $this->table = _get_list_table('WP_Posts_List_Table');
     }
 
     public function testPostType()
@@ -23,14 +29,25 @@ class EntriesTest extends \WP_UnitTestCase
 
     public function testRemovedBulkEdit()
     {
-        set_current_screen('edit-' . Entries::POST_TYPE);
-        $GLOBALS['hook_suffix'] = '';
-        $table = _get_list_table('WP_Posts_List_Table');
-
         ob_start();
-        $table->bulk_actions();
+        $this->table->bulk_actions();
         $output = ob_get_clean();
 
         $this->assertNotContains('Edit', $output);
+    }
+
+    public function testRowActions()
+    {
+        $entry = $this->factory->post->create_and_get([
+            'post_type' => Entries::POST_TYPE,
+        ]);
+
+        ob_start();
+        $this->table->single_row($entry);
+        $output = ob_get_clean();
+
+        $this->assertContains('view', $output);
+        $this->assertNotContains('<span class=\'edit\'>', $output);
+        $this->assertNotContains('editinline', $output);
     }
 }
