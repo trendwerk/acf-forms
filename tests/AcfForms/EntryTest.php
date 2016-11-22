@@ -24,7 +24,7 @@ class EntryTest extends \WP_UnitTestCase
         $this->assertEquals($this->postId, $entry->id);
     }
 
-    public function testEmptyFieldGroup()
+    public function testEmptyFieldGroups()
     {
         $entry = Entry::find($this->postId);
         $this->assertEquals([], $entry->getFieldGroups());
