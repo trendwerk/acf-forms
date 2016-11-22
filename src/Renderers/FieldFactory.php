@@ -5,6 +5,14 @@ final class FieldFactory
 {
     public static function create($field)
     {
-        return new Field($field);
+        switch ($field['type']) {
+            case 'repeater':
+                return new Repeater($field);
+                break;
+            
+            default:
+                return new Field($field);
+                break;
+        }
     }
 }

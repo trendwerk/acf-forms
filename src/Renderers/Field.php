@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Renderers;
 
 class Field implements RendererInterface
 {
-    private $field;
+    protected $field;
 
     public function __construct($field)
     {
@@ -12,8 +12,17 @@ class Field implements RendererInterface
 
     public function render($entry)
     {
-        $value = $entry->getField($this->field['key']);
+        $value = $this->getValue($entry);
 
         return "<p><strong>{$this->field['label']}</strong><br />{$value}</p>";
+    }
+
+    protected function getValue($entry)
+    {
+        if ($this->field['value']) {
+            return $this->field['value'];
+        } else {
+            return $entry->getField($this->field['key']);
+        }
     }
 }
