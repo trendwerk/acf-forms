@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms;
 
 final class Entry
 {
-    private $id;
+    public $id;
     private $keys = [
         'fieldGroups' => '_fieldGroups',
     ];

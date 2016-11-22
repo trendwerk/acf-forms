@@ -21,5 +21,6 @@ class EntryTest extends \WP_UnitTestCase
     {
         $entry = Entry::find($this->postId);
         $this->assertEquals('Trendwerk\AcfForms\Entry', get_class($entry));
+        $this->assertEquals($this->postId, $entry->id);
     }
 }
