@@ -9,7 +9,9 @@ final class FieldFactory
             case 'repeater':
                 return new Repeater($field);
                 break;
-            
+            case 'post_object':
+                return new PostObject($field);
+                break;
             default:
                 return new Field($field);
                 break;
