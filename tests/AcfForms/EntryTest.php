@@ -23,4 +23,10 @@ class EntryTest extends \WP_UnitTestCase
         $this->assertEquals('Trendwerk\AcfForms\Entry', get_class($entry));
         $this->assertEquals($this->postId, $entry->id);
     }
+
+    public function testEmptyFieldGroup()
+    {
+        $entry = Entry::find($this->postId);
+        $this->assertEquals([], $entry->getFieldGroups());
+    }
 }

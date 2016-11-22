@@ -20,7 +20,7 @@ final class Entry
 
     public function getFieldGroups()
     {
-        return (array) get_post_meta($this->id, $this->keys['fieldGroups'], true);
+        return array_filter((array) get_post_meta($this->id, $this->keys['fieldGroups'], true));
     }
 
     public function setFieldGroups($fieldGroups)
