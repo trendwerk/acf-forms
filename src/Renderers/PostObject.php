@@ -7,6 +7,10 @@ class PostObject extends Field implements RendererInterface
     {
         $value = parent::getValue($entry);
 
-        return $value->post_title;
+        if ($this->field['return_format'] == 'id') {
+            return get_the_title($value);
+        } else {
+            return get_the_title($value->ID);
+        }
     }
 }
