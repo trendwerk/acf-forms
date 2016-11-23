@@ -12,6 +12,9 @@ final class Form
 
     public static function head()
     {
+        $sanitizer = new Sanitizer();
+        $sanitizer->init();
+
         acf_form_head();
     }
 
