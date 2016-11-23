@@ -5,9 +5,10 @@ final class Form
 {
     private $options;
 
-    public function __construct($options = [])
+    public function __construct($name)
     {
-        $this->options = $options;
+        $forms = Forms::getInstance();
+        $this->options = $forms->get($name);
     }
 
     public static function head()
