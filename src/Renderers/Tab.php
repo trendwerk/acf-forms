@@ -5,8 +5,12 @@ class Tab extends Field implements RendererInterface
 {
     protected static $first = true;
 
-    public function render($entry)
+    public function render($entry, $label = true)
     {
+        if (! $label) {
+            return;
+        }
+
         $output = '';
 
         if ($this->shouldRenderDivider()) {

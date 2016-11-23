@@ -10,7 +10,7 @@ final class FieldGroup implements RendererInterface
         $this->fieldGroup = $fieldGroup;
     }
 
-    public function render($entry)
+    public function render($entry, $label = true)
     {
         $fields = acf_get_fields($this->fieldGroup);
 

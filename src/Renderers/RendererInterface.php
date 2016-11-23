@@ -3,5 +3,5 @@ namespace Trendwerk\AcfForms\Renderers;
 
 interface RendererInterface
 {
-    public function render($entry);
+    public function render($entry, $label = true);
 }

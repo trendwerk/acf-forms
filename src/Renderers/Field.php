@@ -10,11 +10,17 @@ class Field implements RendererInterface
         $this->field = $field;
     }
 
-    public function render($entry)
+    public function render($entry, $label = true)
     {
-        $value = $this->getValue($entry);
+        $output = '';
 
-        return "<h3>{$this->field['label']}</h3><p>{$value}</p>";
+        if ($label) {
+            $output .= $this->label();
+        }
+
+        $output .= $this->value($entry);
+
+        return $output;
     }
 
     protected function getValue($entry)
@@ -24,5 +30,17 @@ class Field implements RendererInterface
         } else {
             return $entry->getField($this->field['key']);
         }
+    }
+
+    protected function label()
+    {
+        return "<h3>{$this->field['label']}</h3>";
+    }
+
+    protected function value($entry)
+    {
+        $value = $this->getValue($entry);
+
+        return "<p>{$value}</p>";
     }
 }

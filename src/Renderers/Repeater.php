@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Renderers;
 
 class Repeater extends Field implements RendererInterface
 {
-    public function render($entry)
+    public function render($entry, $label = true)
     {
         $rows = $this->getValue($entry);
 
@@ -11,7 +11,11 @@ class Repeater extends Field implements RendererInterface
             return;
         }
 
-        $output = $this->start();
+        if ($label) {
+            $output = $this->label();
+        }
+
+        $output .= $this->start();
 
         foreach ($rows as $row) {
             $output .= $this->row($row, $entry);
