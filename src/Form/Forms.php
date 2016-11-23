@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms;
+namespace Trendwerk\AcfForms\Form;
 
 use BadMethodCallException;
 use InvalidArgumentException;

@@ -1,5 +1,8 @@
 <?php
-namespace Trendwerk\AcfForms;
+namespace Trendwerk\AcfForms\Form;
+
+use Trendwerk\AcfForms\Entries;
+use Trendwerk\AcfForms\Sanitizer;
 
 final class Form
 {
