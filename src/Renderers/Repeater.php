@@ -49,7 +49,7 @@ class Repeater extends Field implements RendererInterface
             $subField['value'] = $row[$subField['name']];
 
             $subField = FieldFactory::create($subField);
-            $output .= "<td>{$subField->render($entry)}</td>";
+            $output .= "<td>{$subField->render($entry, false)}</td>";
         }
 
         $output .= $this->rowEnd();
