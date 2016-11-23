@@ -11,10 +11,10 @@ class Repeater extends Field implements RendererInterface
             return;
         }
 
-        $output .= $this->start();
+        $output = $this->start();
 
         foreach ($rows as $row) {
-            $output .= $this->row($row);
+            $output .= $this->row($row, $entry);
         }
 
         $output .= $this->end();
@@ -37,7 +37,7 @@ class Repeater extends Field implements RendererInterface
         return '<tr>';
     }
 
-    protected function row($row, $fields)
+    protected function row($row, $entry)
     {
         $output = $this->rowStart();
 
