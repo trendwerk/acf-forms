@@ -5,23 +5,62 @@ class Repeater extends Field implements RendererInterface
 {
     public function render($entry)
     {
-        $subFields = $this->field['sub_fields'];
+        $rows = $this->getValue($entry);
 
-        if (! is_array($subFields)) {
+        if (count($rows) == 0) {
             return;
         }
 
-        $output = '';
-        $rows = $this->getValue($entry);
+        $output .= $this->start();
 
         foreach ($rows as $row) {
-            foreach ($subFields as $subField) {
-                $subField['value'] = $row[$subField['name']];
-
-                $subField = FieldFactory::create($subField);
-                $output .= $subField->render($entry);
-            }
+            $output .= $this->row($row);
         }
+
+        $output .= $this->end();
+
+        return $output;
+    }
+
+    protected function start()
+    {
+        return '<table>' . $this->getTableHead();
+    }
+
+    protected function end()
+    {
+        return '</table>';
+    }
+
+    protected function rowStart()
+    {
+        return '<tr>';
+    }
+
+    protected function row($row, $fields)
+    {
+        $output = $this->rowStart();
+
+        foreach ($this->field['sub_fields'] as $subField) {
+            $subField['value'] = $row[$subField['name']];
+
+            $subField = FieldFactory::create($subField);
+            $output .= "<td>{$subField->render($entry)}</td>";
+        }
+
+        $output .= $this->rowEnd();
+
+        return $output;
+    }
+
+    protected function rowEnd()
+    {
+        return '</tr>';
+    }
+
+    protected function getTableHead()
+    {
+        $output = '<thead><tr></tr></thead>';
 
         return $output;
     }
