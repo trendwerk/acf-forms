@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms\Handlers;
+namespace Trendwerk\AcfForms\Handler;
 
 final class Database implements HandlerInterface
 {

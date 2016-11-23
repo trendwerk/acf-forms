@@ -1,8 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms;
 
-use Trendwerk\AcfForms\Exceptions\FormGetException;
-use Trendwerk\AcfForms\Exceptions\FormRegisterException;
+use Trendwerk\AcfForms\Exception\FormGetException;
+use Trendwerk\AcfForms\Exception\FormRegisterException;
 
 final class Forms
 {

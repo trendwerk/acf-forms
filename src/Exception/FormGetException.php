@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms\Exceptions;
+namespace Trendwerk\AcfForms\Exception;
 
 class FormGetException extends \Exception
 {

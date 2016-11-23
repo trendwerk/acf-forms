@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms\Notifications;
+namespace Trendwerk\AcfForms\Notification;
 
 abstract class Notification
 {

@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms\Renderers;
+namespace Trendwerk\AcfForms\Renderer;
 
 class Tab extends Field implements RendererInterface
 {

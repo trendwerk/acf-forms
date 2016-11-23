@@ -1,7 +1,7 @@
 <?php
-namespace Trendwerk\AcfForms\Notifications;
+namespace Trendwerk\AcfForms\Notification;
 
-use Trendwerk\AcfForms\Renderers\FieldGroup;
+use Trendwerk\AcfForms\Renderer\FieldGroup;
 
 final class Admin extends Notification
 {

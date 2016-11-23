@@ -1,7 +1,7 @@
 <?php
-namespace Trendwerk\AcfForms\Handlers;
+namespace Trendwerk\AcfForms\Handler;
 
-use Trendwerk\AcfForms\Notifications\Admin;
+use Trendwerk\AcfForms\Notification\Admin;
 
 final class Notifications implements HandlerInterface
 {

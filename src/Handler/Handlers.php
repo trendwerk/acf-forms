@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms\Handlers;
+namespace Trendwerk\AcfForms\Handler;
 
 use Trendwerk\AcfForms\Entries;
 use Trendwerk\AcfForms\Entry;

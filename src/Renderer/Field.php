@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms\Renderers;
+namespace Trendwerk\AcfForms\Renderer;
 
 class Field implements RendererInterface
 {

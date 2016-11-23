@@ -8,9 +8,9 @@ final class Plugin
         $entries = new Entries();
         $entries->init();
 
-        $handler = new Handlers\Handlers([
-            new Handlers\Database(),
-            new Handlers\Notifications(),
+        $handler = new Handler\Handlers([
+            new Handler\Database(),
+            new Handler\Notifications(),
         ]);
         $handler->init();
 
