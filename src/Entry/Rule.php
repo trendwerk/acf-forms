@@ -1,7 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms;
-
-use Trendwerk\AcfForms\Entry\Entry;
+namespace Trendwerk\AcfForms\Entry;
 
 final class Rule
 {
