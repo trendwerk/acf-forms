@@ -12,6 +12,9 @@ final class FieldFactory
             case 'post_object':
                 return new PostObject($field);
                 break;
+            case 'tab':
+                return new Tab($field);
+                break;
             default:
                 return new Field($field);
                 break;
