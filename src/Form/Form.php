@@ -2,7 +2,7 @@
 namespace Trendwerk\AcfForms\Form;
 
 use Trendwerk\AcfForms\Entry\Entries;
-use Trendwerk\AcfForms\Sanitizer;
+use Trendwerk\AcfForms\Entry\Sanitizer;
 
 final class Form
 {
