@@ -15,6 +15,9 @@ final class FieldFactory
             case 'tab':
                 return new Tab($field);
                 break;
+            case 'textarea':
+                return new Textarea($field);
+                break;
             default:
                 return new Field($field);
                 break;
