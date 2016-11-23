@@ -14,7 +14,7 @@ class Field implements RendererInterface
     {
         $value = $this->getValue($entry);
 
-        return "<p><strong>{$this->field['label']}</strong><br />{$value}</p>";
+        return "<h3>{$this->field['label']}</h3><p>{$value}</p>";
     }
 
     protected function getValue($entry)
