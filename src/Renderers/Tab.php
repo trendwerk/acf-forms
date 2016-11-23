@@ -5,6 +5,6 @@ class Tab extends Field implements RendererInterface
 {
     public function render($entry)
     {
-        return "<h2>{$this->field['label']}</h2>";
+        return "<hr><h2>{$this->field['label']}</h2>";
     }
 }
