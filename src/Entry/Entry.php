@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Entry;
 
 final class Entry
 {
-    public $id;
+    private $id;
     private $keys = [
         'fieldGroups' => '_fieldGroups',
     ];
@@ -16,6 +16,11 @@ final class Entry
     public static function find($id)
     {
         return new static($id);
+    }
+
+    public function getId()
+    {
+        return $this->id;
     }
 
     public function getField($field)
