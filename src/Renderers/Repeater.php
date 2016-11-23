@@ -60,7 +60,13 @@ class Repeater extends Field implements RendererInterface
 
     protected function getTableHead()
     {
-        $output = '<thead><tr></tr></thead>';
+        $output = '<thead><tr>';
+
+        foreach ($this->field['sub_fields'] as $subField) {
+            $output .= "<th>{$subField['label']}</th>";
+        }
+
+        $output .= '</tr></thead>';
 
         return $output;
     }
