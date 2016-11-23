@@ -17,4 +17,10 @@ final class Plugin
         $rule = new Rule();
         $rule->init();
     }
+
+    public function register($name, $options = [])
+    {
+        $forms = Forms::getInstance();
+        $forms->add($name, $options);
+    }
 }
