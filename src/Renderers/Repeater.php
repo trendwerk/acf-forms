@@ -28,7 +28,7 @@ class Repeater extends Field implements RendererInterface
 
     protected function start()
     {
-        return '<table>' . $this->getTableHead();
+        return '<table style="width: 100%;">' . $this->getTableHead();
     }
 
     protected function end()
@@ -67,7 +67,7 @@ class Repeater extends Field implements RendererInterface
         $output = '<thead><tr>';
 
         foreach ($this->field['sub_fields'] as $subField) {
-            $output .= "<th>{$subField['label']}</th>";
+            $output .= "<th style=\"text-align: left;\">{$subField['label']}</th>";
         }
 
         $output .= '</tr></thead>';
