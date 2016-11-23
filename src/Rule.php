@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 final class Rule
 {
     private $rule = 'acf-form';

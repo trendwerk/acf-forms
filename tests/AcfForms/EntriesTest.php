@@ -1,7 +1,7 @@
 <?php
 namespace Trendwerk\AcfForms\Test;
 
-use Trendwerk\AcfForms\Entries;
+use Trendwerk\AcfForms\Entry\Entries;
 
 class EntriesTest extends \WP_UnitTestCase
 {

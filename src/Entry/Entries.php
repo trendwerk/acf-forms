@@ -1,5 +1,5 @@
 <?php
-namespace Trendwerk\AcfForms;
+namespace Trendwerk\AcfForms\Entry;
 
 final class Entries
 {

@@ -1,6 +1,7 @@
 <?php
 namespace Trendwerk\AcfForms;
 
+use Trendwerk\AcfForms\Entry\Entries;
 use Trendwerk\AcfForms\Form\Forms;
 
 final class Plugin

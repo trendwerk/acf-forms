@@ -1,8 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Test;
 
-use Trendwerk\AcfForms\Entries;
-use Trendwerk\AcfForms\Entry;
+use Trendwerk\AcfForms\Entry\Entries;
+use Trendwerk\AcfForms\Entry\Entry;
 
 class EntryTest extends \WP_UnitTestCase
 {
@@ -20,7 +20,7 @@ class EntryTest extends \WP_UnitTestCase
     public function testFind()
     {
         $entry = Entry::find($this->postId);
-        $this->assertEquals('Trendwerk\AcfForms\Entry', get_class($entry));
+        $this->assertEquals('Trendwerk\AcfForms\Entry\Entry', get_class($entry));
         $this->assertEquals($this->postId, $entry->id);
     }
 

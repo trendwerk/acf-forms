@@ -1,8 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Handler;
 
-use Trendwerk\AcfForms\Entries;
-use Trendwerk\AcfForms\Entry;
+use Trendwerk\AcfForms\Entry\Entries;
+use Trendwerk\AcfForms\Entry\Entry;
 
 final class Handlers
 {
