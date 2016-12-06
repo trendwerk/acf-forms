@@ -1,13 +1,19 @@
 <?php
 namespace Trendwerk\AcfForms\Handler;
 
-use Trendwerk\AcfForms\Notification\Admin;
-
 final class Notifications implements HandlerInterface
 {
     public function handle($form, $entry)
     {
-        $adminNotification = new Admin($entry);
-        $adminNotification->send();
+        if (isset($form['notifications'])) {
+            $classNames = (array) $form['notifications'];
+        } else {
+            $classNames = ['Trendwerk\\AcfForms\\Notification\\Admin'];
+        }
+        
+        foreach ($classNames as $className) {
+            $notification = new $className($entry);
+            $notification->send();
+        }
     }
 }
