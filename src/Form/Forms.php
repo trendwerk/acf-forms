@@ -25,8 +25,8 @@ final class Forms
 
     public function add($name, $options)
     {
-        if (! isset($options['field_groups'])) {
-            throw new BadMethodCallException('field_groups is a required property.');
+        if (! isset($options['acfForm']) || ! isset($options['acfForm']['field_groups'])) {
+            throw new BadMethodCallException('acfForm[field_groups] is a required property.');
         }
 
         $this->forms[$name] = $options;

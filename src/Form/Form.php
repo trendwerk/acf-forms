@@ -24,11 +24,11 @@ final class Form
 
     public function render()
     {
-        if (! isset($this->options['field_groups'])) {
+        if (! isset($this->options['acfForm']['field_groups'])) {
             return;
         }
 
-        $options = wp_parse_args($this->options, [
+        $options = wp_parse_args($this->options['acfForm'], [
             'html_before_fields' => $this->getFieldGroupsInput(),
             'new_post'           => [
                 'post_status'    => 'publish',
