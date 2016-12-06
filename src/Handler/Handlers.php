@@ -3,6 +3,7 @@ namespace Trendwerk\AcfForms\Handler;
 
 use Trendwerk\AcfForms\Entry\Entries;
 use Trendwerk\AcfForms\Entry\Entry;
+use Trendwerk\AcfForms\Form\Forms;
 
 final class Handlers
 {
@@ -26,13 +27,17 @@ final class Handlers
 
         $entry = Entry::find($postId);
 
+        $formName = esc_attr($_POST['form']);
+        $forms = Forms::getInstance();
+        $form = $forms->get($formName);
+
         foreach ($this->handlers as $handler) {
-            $this->run($handler, $entry);
+            $this->run($handler, $form, $entry);
         }
     }
 
-    private function run(HandlerInterface $handler, $entry)
+    private function run(HandlerInterface $handler, $form, $entry)
     {
-        $handler->handle($entry);
+        $handler->handle($form, $entry);
     }
 }

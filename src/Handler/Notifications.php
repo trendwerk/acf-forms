@@ -5,7 +5,7 @@ use Trendwerk\AcfForms\Notification\Admin;
 
 final class Notifications implements HandlerInterface
 {
-    public function handle($entry)
+    public function handle($form, $entry)
     {
         $adminNotification = new Admin($entry);
         $adminNotification->send();
