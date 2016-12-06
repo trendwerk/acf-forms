@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Notification;
 
 use Trendwerk\AcfForms\Renderer\FieldGroup;
 
-final class Admin extends Notification
+class Admin extends Notification
 {
     protected function getBody()
     {
