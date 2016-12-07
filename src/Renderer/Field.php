@@ -16,6 +16,10 @@ class Field implements RendererInterface
     {
         $output = '';
 
+        if (! $this->getValue($entry)) {
+            return;
+        }
+
         if ($label) {
             $output .= $this->label();
         }
