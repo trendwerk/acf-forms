@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Entry;
 
+use \WP_Post;
+
 final class Entries
 {
     const POST_TYPE = 'entries';
@@ -30,14 +32,14 @@ final class Entries
         ]);
     }
 
-    public function removeBulkEdit($actions)
+    public function removeBulkEdit(array $actions)
     {
         unset($actions['edit']);
 
         return $actions;
     }
 
-    public function setRowActions($actions, $post)
+    public function setRowActions(array $actions, WP_Post $post)
     {
         if (get_post_type($post->ID) !== self::POST_TYPE) {
             return $actions;

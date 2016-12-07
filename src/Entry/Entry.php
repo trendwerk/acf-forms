@@ -33,7 +33,7 @@ final class Entry
         return array_filter((array) get_post_meta($this->id, $this->keys['fieldGroups'], true));
     }
 
-    public function setFieldGroups($fieldGroups)
+    public function setFieldGroups(array $fieldGroups)
     {
         update_post_meta($this->id, $this->keys['fieldGroups'], $fieldGroups);
     }

@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Renderer;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 final class FieldGroup implements RendererInterface
 {
     private $fieldGroup;
@@ -10,7 +12,7 @@ final class FieldGroup implements RendererInterface
         $this->fieldGroup = $fieldGroup;
     }
 
-    public function render($entry, $label = true)
+    public function render(Entry $entry, $label = true)
     {
         $fields = acf_get_fields($this->fieldGroup);
 

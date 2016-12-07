@@ -22,7 +22,7 @@ final class AcfForms
         $rule->init();
     }
 
-    public function register($name, $options = [])
+    public function register($name, array $options = [])
     {
         $forms = Forms::getInstance();
         $forms->add($name, $options);

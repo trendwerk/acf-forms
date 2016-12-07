@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Notification;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 abstract class Notification
 {
     protected $entry;
@@ -9,7 +11,7 @@ abstract class Notification
     abstract protected function getRecipient();
     abstract protected function getSubject();
 
-    public function __construct($entry)
+    public function __construct(Entry $entry)
     {
         $this->entry = $entry;
     }

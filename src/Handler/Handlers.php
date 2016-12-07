@@ -10,7 +10,7 @@ final class Handlers
 {
     private $handlers;
 
-    public function __construct($handlers = [])
+    public function __construct(array $handlers = [])
     {
         $this->handlers = $handlers;
     }

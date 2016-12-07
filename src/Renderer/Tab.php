@@ -1,11 +1,13 @@
 <?php
 namespace Trendwerk\AcfForms\Renderer;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 class Tab extends Field implements RendererInterface
 {
     protected static $first = true;
 
-    public function render($entry, $label = true)
+    public function render(Entry $entry, $label = true)
     {
         if (! $label) {
             return;

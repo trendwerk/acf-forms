@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Renderer;
 
 final class FieldFactory
 {
-    public static function create($field)
+    public static function create(array $field)
     {
         switch ($field['type']) {
             case 'post_object':

@@ -1,9 +1,11 @@
 <?php
 namespace Trendwerk\AcfForms\Renderer;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 class Repeater extends Field implements RendererInterface
 {
-    public function render($entry, $label = true)
+    public function render(Entry $entry, $label = true)
     {
         $rows = $this->getValue($entry);
 

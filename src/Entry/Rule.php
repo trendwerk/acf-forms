@@ -13,28 +13,28 @@ final class Rule
         add_filter('acf/location/rule_match/' . $this->rule, [$this, 'match'], 10, 3);
     }
 
-    public function add($rules)
+    public function add(array $rules)
     {
         $rules[__('Forms', 'acf')][$this->rule] = __('Front-end', 'acf-forms');
 
         return $rules;
     }
 
-    public function values($values)
+    public function values(array $values)
     {
         $values['true'] = __('Yes');
 
         return $values;
     }
 
-    public function addFieldGroup($options, $fieldGroup)
+    public function addFieldGroup(array $options, array $fieldGroup)
     {
         $options['fieldGroup'] = $fieldGroup;
 
         return $options;
     }
 
-    public function match($match, $rule, $args)
+    public function match($match, array $rule, array $args)
     {
         $entry = Entry::find($args['post_id']);
         $match = in_array($args['fieldGroup']['key'], $entry->getFieldGroups());

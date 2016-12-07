@@ -1,16 +1,18 @@
 <?php
 namespace Trendwerk\AcfForms\Renderer;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 class Field implements RendererInterface
 {
     protected $field;
 
-    public function __construct($field)
+    public function __construct(array $field)
     {
         $this->field = $field;
     }
 
-    public function render($entry, $label = true)
+    public function render(Entry $entry, $label = true)
     {
         $output = '';
 
@@ -23,7 +25,7 @@ class Field implements RendererInterface
         return $output;
     }
 
-    protected function getValue($entry)
+    protected function getValue(Entry $entry)
     {
         if ($this->field['value']) {
             return $this->field['value'];
@@ -37,7 +39,7 @@ class Field implements RendererInterface
         return "<h3>{$this->field['label']}</h3>";
     }
 
-    protected function value($entry)
+    protected function value(Entry $entry)
     {
         $value = $this->getValue($entry);
 

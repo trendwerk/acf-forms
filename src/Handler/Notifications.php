@@ -1,9 +1,11 @@
 <?php
 namespace Trendwerk\AcfForms\Handler;
 
+use Trendwerk\AcfForms\Entry\Entry;
+
 final class Notifications implements HandlerInterface
 {
-    public function handle($form, $entry)
+    public function handle(array $form, Entry $entry)
     {
         if (isset($form['notifications'])) {
             $classNames = (array) $form['notifications'];
