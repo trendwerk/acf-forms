@@ -8,11 +8,15 @@ abstract class Notification
     abstract protected function getBody();
     abstract protected function getRecipient();
     abstract protected function getSubject();
-    abstract public function send();
 
     public function __construct($entry)
     {
         $this->entry = $entry;
+    }
+
+    public function send()
+    {
+        return wp_mail($this->getRecipient(), $this->getSubject(), $this->getBody(), $this->getHeaders());
     }
 
     protected function getHeaders()

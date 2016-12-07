@@ -34,9 +34,4 @@ class Admin extends Notification
 
         return sprintf(__('Filled in form: %1$s', 'acf-forms'), implode(', ', $fieldGroupNames));
     }
-
-    public function send()
-    {
-        return wp_mail($this->getRecipient(), $this->getSubject(), $this->getBody(), $this->getHeaders());
-    }
 }
