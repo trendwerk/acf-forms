@@ -27,4 +27,4 @@ before_script:
 
 script:
   - vendor/bin/phpcs --standard=PSR2 $(find src tests -name '*.php')
-  - phpunit
+  - vendor/bin/phpunit
