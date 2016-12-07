@@ -7,7 +7,7 @@ class Repeater extends Field implements RendererInterface
     {
         $rows = $this->getValue($entry);
 
-        if (count($rows) == 0) {
+        if (! $rows) {
             return;
         }
 
