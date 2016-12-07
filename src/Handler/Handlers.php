@@ -3,6 +3,7 @@ namespace Trendwerk\AcfForms\Handler;
 
 use Trendwerk\AcfForms\Entry\Entries;
 use Trendwerk\AcfForms\Entry\Entry;
+use Trendwerk\AcfForms\Form\Form;
 use Trendwerk\AcfForms\Form\Forms;
 
 final class Handlers
@@ -36,7 +37,7 @@ final class Handlers
         }
     }
 
-    private function run(HandlerInterface $handler, $form, $entry)
+    private function run(HandlerInterface $handler, array $form, Entry $entry)
     {
         $handler->handle($form, $entry);
     }
