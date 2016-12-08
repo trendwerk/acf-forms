@@ -22,7 +22,15 @@ class RuleTest extends \WP_UnitTestCase
         ]);
         $output = ob_get_clean();
 
-        $this->assertContains(__('Yes'), $output);
+        $this->assertContains('>' . __('Yes') . '<', $output);
         $this->assertContains('<option value="true"', $output);
+    }
+
+    public function testValuesHook()
+    {
+        $values = apply_filters('acf/location/rule_values/' . $this->rule, []);
+
+        $this->assertArrayHasKey('true', $values);
+        $this->assertEquals($values['true'], __('Yes'));
     }
 }
