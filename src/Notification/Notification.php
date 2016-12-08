@@ -18,7 +18,12 @@ abstract class Notification
 
     public function send()
     {
-        return wp_mail($this->getRecipient(), $this->getSubject(), $this->getBody(), $this->getHeaders());
+        return wp_mail($this->getRecipient(), $this->getSubject(), $this->getBody(), $this->getHeaders(), $this->getAttachments());
+    }
+
+    protected function getAttachments()
+    {
+        return [];
     }
 
     protected function getHeaders()
