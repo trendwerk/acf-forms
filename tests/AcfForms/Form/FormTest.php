@@ -1,6 +1,7 @@
 <?php
 namespace Trendwerk\AcfForms\Test;
 
+use Trendwerk\AcfForms\Form\Form;
 use Trendwerk\AcfForms\Form\Forms;
 
 class FormTest extends TestCase
@@ -23,5 +24,15 @@ class FormTest extends TestCase
     public function testFieldGroup()
     {
         $this->assertNotNull($this->getFieldGroup($this->fieldGroup));
+    }
+
+    public function testHead()
+    {
+        ob_start();
+        Form::head();
+        wp_print_scripts();
+        $output = ob_get_clean();
+
+        $this->assertContains('input.min.js', $output);
     }
 }
