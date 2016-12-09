@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Test;
 
+use Trendwerk\AcfForms\Entry\Entries;
+
 abstract class TestCase extends \WP_UnitTestCase
 {
     protected function createFieldGroup($name, $fields = [])
@@ -24,5 +26,14 @@ abstract class TestCase extends \WP_UnitTestCase
     protected function getFieldGroup($name)
     {
         return acf_get_local_field_group($name);
+    }
+
+    protected function createEntry()
+    {
+        $postId = $this->factory->post->create([
+            'post_type' => Entries::POST_TYPE,
+        ]);
+
+        return $postId;
     }
 }

@@ -4,7 +4,7 @@ namespace Trendwerk\AcfForms\Test;
 use Trendwerk\AcfForms\Entry\Entries;
 use Trendwerk\AcfForms\Entry\Entry;
 
-class EntryTest extends \WP_UnitTestCase
+class EntryTest extends TestCase
 {
     private $postId;
 
@@ -12,9 +12,7 @@ class EntryTest extends \WP_UnitTestCase
     {
         parent::setUp();
 
-        $this->postId = $this->factory->post->create([
-            'post_type' => Entries::POST_TYPE,
-        ]);
+        $this->postId = $this->createEntry();
     }
 
     public function testFind()
