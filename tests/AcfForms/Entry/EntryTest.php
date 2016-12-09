@@ -36,4 +36,16 @@ class EntryTest extends TestCase
         $entry->setFieldGroups($fieldGroups);
         $this->assertEquals($fieldGroups, $entry->getFieldGroups());
     }
+
+    public function testGetField()
+    {
+        $field = 'testField';
+        $value = 'testValue';
+
+        update_field($field, $value, $this->postId);
+
+        $entry = Entry::find($this->postId);
+
+        $this->assertEquals($entry->getField($field), $value);
+    }
 }
