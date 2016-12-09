@@ -37,4 +37,16 @@ class FormTest extends TestCase
         $this->assertContains('acf-input.min.js', $output);
         $this->assertContains('acf-pro-input.min.js', $output);
     }
+
+    public function testRender()
+    {
+        $form = new Form($this->form);
+
+        ob_start();
+        $form->render();
+        $output = ob_get_clean();
+
+        $this->assertContains('<form', $output);
+        $this->assertContains('<input type="hidden" name="form" value="' . $this->form . '" />', $output);
+    }
 }
