@@ -7,6 +7,18 @@ class RuleTest extends \WP_UnitTestCase
 {
     private $rule = 'acf-form';
 
+    public function testAddOutput()
+    {
+        acf_include('admin/field-group.php');
+        $acfFieldGroup = new acf_admin_field_group();
+
+        ob_start();
+        $acfFieldGroup->mb_locations();
+        $output = ob_get_clean();
+
+        $this->assertContains('<option value="' . $this->rule . '">Front-end</option>', $output);
+    }
+
     public function testAddHook()
     {
         $types = apply_filters('acf/location/rule_types', []);
