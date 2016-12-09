@@ -15,7 +15,7 @@ require_once $testsDir . '/includes/functions.php';
  */
 tests_add_filter('muplugins_loaded', function () {
     require_once __DIR__ . '/../vendor/autoload.php';
-    require_once __DIR__ . '/../wp-content/plugins/advanced-custom-fields/acf.php';
+    require_once __DIR__ . '/../wp-content/plugins/advanced-custom-fields-pro/acf.php';
 
     $acfForms = new AcfForms();
     $acfForms->init();
