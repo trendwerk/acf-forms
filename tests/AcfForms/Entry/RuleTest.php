@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Test;
 
 use acf_admin_field_group;
 
-class RuleTest extends \WP_UnitTestCase
+class RuleTest extends TestCase
 {
     private $rule = 'acf-form';
 
@@ -49,5 +49,51 @@ class RuleTest extends \WP_UnitTestCase
 
         $this->assertArrayHasKey('true', $values);
         $this->assertEquals($values['true'], __('Yes'));
+    }
+
+    public function testMatch()
+    {
+        $fieldGroupName = 'testFieldGroup';
+
+        $this->createFieldGroup($fieldGroupName, null, [
+            [
+                [
+                    'param'    => $this->rule,
+                    'operator' => '==',
+                    'value'    => 'true',
+                ],
+            ],
+        ]);
+
+        $entry = $this->createEntry([$fieldGroupName]);
+
+        $visibility = acf_get_field_group_visibility($this->getFieldGroup($fieldGroupName), [
+            'post_id' => $entry->getId(),
+        ]);
+
+        $this->assertTrue($visibility);
+    }
+
+    public function testDontMatch()
+    {
+        $fieldGroupName = 'testFieldGroup';
+
+        $this->createFieldGroup($fieldGroupName, null, [
+            [
+                [
+                    'param'    => $this->rule,
+                    'operator' => '==',
+                    'value'    => 'true',
+                ],
+            ],
+        ]);
+
+        $entry = $this->createEntry();
+
+        $visibility = acf_get_field_group_visibility($this->getFieldGroup($fieldGroupName), [
+            'post_id' => $entry->getId(),
+        ]);
+
+        $this->assertFalse($visibility);
     }
 }
