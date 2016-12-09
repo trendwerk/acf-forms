@@ -30,9 +30,11 @@ class FormTest extends TestCase
     {
         ob_start();
         Form::head();
+        wp_enqueue_scripts();
         wp_print_scripts();
         $output = ob_get_clean();
 
-        $this->assertContains('input.min.js', $output);
+        $this->assertContains('acf-input.min.js', $output);
+        $this->assertContains('acf-pro-input.min.js', $output);
     }
 }
