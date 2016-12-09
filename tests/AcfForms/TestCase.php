@@ -6,7 +6,7 @@ use Trendwerk\AcfForms\Entry\Entry;
 
 abstract class TestCase extends \WP_UnitTestCase
 {
-    protected function createFieldGroup($name, $fields = [])
+    protected function createFieldGroup($name, $fields = [], $location = [])
     {
         if (count($fields) == 0) {
             $fields = [
@@ -19,8 +19,9 @@ abstract class TestCase extends \WP_UnitTestCase
         }
 
         acf_add_local_field_group([
-            'key'    => $name,
-            'fields' => $fields,
+            'key'      => $name,
+            'fields'   => $fields,
+            'location' => $location,
         ]);
     }
 
@@ -29,12 +30,18 @@ abstract class TestCase extends \WP_UnitTestCase
         return acf_get_local_field_group($name);
     }
 
-    protected function createEntry()
+    protected function createEntry($fieldGroups = [])
     {
         $postId = $this->factory->post->create([
             'post_type' => Entries::POST_TYPE,
         ]);
 
-        return Entry::find($postId);
+        $entry = Entry::find($postId);
+
+        if (count($fieldGroups)) {
+            $entry->setFieldGroups($fieldGroups);
+        }
+
+        return $entry;
     }
 }
