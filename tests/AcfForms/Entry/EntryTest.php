@@ -12,7 +12,9 @@ class EntryTest extends TestCase
     {
         parent::setUp();
 
-        $this->postId = $this->createEntry();
+        $this->postId = $this->factory->post->create([
+            'post_type' => Entries::POST_TYPE,
+        ]);
     }
 
     public function testFind()

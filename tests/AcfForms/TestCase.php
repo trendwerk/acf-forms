@@ -2,6 +2,7 @@
 namespace Trendwerk\AcfForms\Test;
 
 use Trendwerk\AcfForms\Entry\Entries;
+use Trendwerk\AcfForms\Entry\Entry;
 
 abstract class TestCase extends \WP_UnitTestCase
 {
@@ -34,6 +35,6 @@ abstract class TestCase extends \WP_UnitTestCase
             'post_type' => Entries::POST_TYPE,
         ]);
 
-        return $postId;
+        return Entry::find($postId);
     }
 }
