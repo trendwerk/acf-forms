@@ -39,7 +39,7 @@ class HandlersTest extends TestCase
         $entry = $this->createEntry($this->fieldGroups);
 
         $_POST = [
-            'acf'  => true,
+            'acf'  => ['testKey' => 'testValue'],
             'form' => $this->formName,
         ];
 
