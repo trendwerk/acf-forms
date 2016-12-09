@@ -1,6 +1,8 @@
 <?php
 namespace Trendwerk\AcfForms\Test;
 
+use acf_admin_field_group;
+
 class RuleTest extends \WP_UnitTestCase
 {
     private $rule = 'acf-form';
@@ -16,8 +18,11 @@ class RuleTest extends \WP_UnitTestCase
 
     public function testValuesOutput()
     {
+        acf_include('admin/field-group.php');
+        $acfFieldGroup = new acf_admin_field_group();
+
         ob_start();
-        do_action('wp_ajax_acf/field_group/render_location', [
+        $acfFieldGroup->render_location_value([
             'param' => $this->rule,
         ]);
         $output = ob_get_clean();
