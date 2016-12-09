@@ -50,4 +50,11 @@ class EntriesTest extends \WP_UnitTestCase
         $this->assertNotContains('<span class=\'edit\'>', $output);
         $this->assertNotContains('editinline', $output);
     }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        unset($GLOBALS['current_screen']);
+    }
 }
