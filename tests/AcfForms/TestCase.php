@@ -22,6 +22,7 @@ abstract class TestCase extends \WP_UnitTestCase
             'key'      => $name,
             'fields'   => $fields,
             'location' => $location,
+            'title'    => $name,
         ]);
     }
 
