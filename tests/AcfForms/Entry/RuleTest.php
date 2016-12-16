@@ -72,6 +72,8 @@ class RuleTest extends TestCase
         ]);
 
         $this->assertTrue($visibility);
+
+        $this->destroyFieldGroup($fieldGroupName);
     }
 
     public function testDontMatch()
@@ -95,5 +97,7 @@ class RuleTest extends TestCase
         ]);
 
         $this->assertFalse($visibility);
+
+        $this->destroyFieldGroup($fieldGroupName);
     }
 }

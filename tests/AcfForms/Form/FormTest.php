@@ -11,6 +11,8 @@ class FormTest extends TestCase
 
     public function setUp()
     {
+        parent::setUp();
+
         $this->createFieldGroup($this->fieldGroup);
 
         $this->forms = Forms::getInstance();
@@ -48,5 +50,12 @@ class FormTest extends TestCase
 
         $this->assertContains('<form', $output);
         $this->assertContains('<input type="hidden" name="form" value="' . $this->form . '" />', $output);
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        $this->destroyFieldGroup($this->fieldGroup);
     }
 }

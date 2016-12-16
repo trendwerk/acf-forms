@@ -31,6 +31,16 @@ abstract class TestCase extends \WP_UnitTestCase
         return acf_get_local_field_group($name);
     }
 
+    protected function destroyFieldGroup($name)
+    {
+        // acf_remove_local_field_group is missing
+        $acfLocal = acf_local();
+
+        if (isset($acfLocal->groups[$name])) {
+            unset($acfLocal->groups[$name]);
+        }
+    }
+
     protected function createEntry($fieldGroups = [])
     {
         $postId = $this->factory->post->create([
