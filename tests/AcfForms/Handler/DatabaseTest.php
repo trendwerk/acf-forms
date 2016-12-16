@@ -1,8 +1,9 @@
 <?php
-namespace Trendwerk\AcfForms\Test;
+namespace Trendwerk\AcfForms\Test\Handler;
 
 use Trendwerk\AcfForms\Form\Forms;
 use Trendwerk\AcfForms\Handler\Handlers;
+use Trendwerk\AcfForms\Test\TestCase;
 
 class DatabaseTest extends TestCase
 {

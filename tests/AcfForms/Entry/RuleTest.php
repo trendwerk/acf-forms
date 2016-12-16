@@ -1,7 +1,8 @@
 <?php
-namespace Trendwerk\AcfForms\Test;
+namespace Trendwerk\AcfForms\Test\Entry;
 
 use acf_admin_field_group;
+use Trendwerk\AcfForms\Test\TestCase;
 
 class RuleTest extends TestCase
 {

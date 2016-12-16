@@ -1,9 +1,10 @@
 <?php
-namespace Trendwerk\AcfForms\Test;
+namespace Trendwerk\AcfForms\Test\Form;
 
 use BadMethodCallException;
 use InvalidArgumentException;
 use Trendwerk\AcfForms\Form\Forms;
+use Trendwerk\AcfForms\Test\TestCase;
 
 class FormsTest extends TestCase
 {

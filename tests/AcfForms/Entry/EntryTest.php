@@ -1,8 +1,9 @@
 <?php
-namespace Trendwerk\AcfForms\Test;
+namespace Trendwerk\AcfForms\Test\Entry;
 
 use Trendwerk\AcfForms\Entry\Entries;
 use Trendwerk\AcfForms\Entry\Entry;
+use Trendwerk\AcfForms\Test\TestCase;
 
 class EntryTest extends TestCase
 {

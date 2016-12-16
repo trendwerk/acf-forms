@@ -1,7 +1,8 @@
 <?php
-namespace Trendwerk\AcfForms\Test;
+namespace Trendwerk\AcfForms\Test\Entry;
 
 use Trendwerk\AcfForms\Entry\Sanitizer;
+use Trendwerk\AcfForms\Test\TestCase;
 
 class SanitizerTest extends TestCase
 {

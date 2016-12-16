@@ -1,7 +1,8 @@
 <?php
-namespace Trendwerk\AcfForms\Test;
+namespace Trendwerk\AcfForms\Test\Notification;
 
 use Trendwerk\AcfForms\Form\Forms;
+use Trendwerk\AcfForms\Test\TestCase;
 
 class AdminTest extends TestCase
 {
