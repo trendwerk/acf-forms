@@ -1,7 +1,7 @@
 <?php
 namespace Trendwerk\AcfForms\Entry;
 
-use \WP_Post;
+use WP_Post;
 
 final class Entries
 {
