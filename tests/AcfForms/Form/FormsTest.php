@@ -5,7 +5,7 @@ use BadMethodCallException;
 use InvalidArgumentException;
 use Trendwerk\AcfForms\Form\Forms;
 
-class FormsTest extends \WP_UnitTestCase
+class FormsTest extends TestCase
 {
     public function setUp()
     {

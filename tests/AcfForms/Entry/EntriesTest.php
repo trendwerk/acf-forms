@@ -3,7 +3,7 @@ namespace Trendwerk\AcfForms\Test;
 
 use Trendwerk\AcfForms\Entry\Entries;
 
-class EntriesTest extends \WP_UnitTestCase
+class EntriesTest extends TestCase
 {
     private $table;
 
