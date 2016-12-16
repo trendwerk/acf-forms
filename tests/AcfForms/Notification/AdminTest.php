@@ -57,12 +57,15 @@ class AdminTest extends TestCase
         $mailer = tests_retrieve_phpmailer_instance();
         $sent = $mailer->get_sent();
 
+        $this->assertContains(get_option('admin_email'), $sent->to[0]);
         $this->assertContains($this->fieldGroup, $sent->subject);
         $this->assertContains($expectedValue, $sent->body);
 
         foreach ($this->fields as $field) {
             $this->assertContains($field['label'], $sent->body);
         }
+
+        $this->assertContains('Content-Type: text/html', $sent->header);
     }
 
     public function tearDown()
