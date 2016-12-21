@@ -8,13 +8,14 @@ class NotificationsTest extends TestCase
 {
     private $fieldGroups = ['testFieldGroup'];
     private $formName = 'test';
+    private $forms;
 
     public function setUp()
     {
         parent::setUp();
 
-        $forms = Forms::getInstance();
-        $forms->add($this->formName, [
+        $this->forms = Forms::getInstance();
+        $this->forms->add($this->formName, [
             'acfForm'          => [
                 'field_groups' => $this->fieldGroups,
             ],
@@ -40,5 +41,12 @@ class NotificationsTest extends TestCase
         acf_save_post($entry->getId());
 
         $this->assertTrue($mockNotificationSuccess);
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        $this->forms->remove($this->formName);
     }
 }

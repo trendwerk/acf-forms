@@ -9,13 +9,14 @@ class DatabaseTest extends TestCase
 {
     private $fieldGroups = ['testFieldGroup'];
     private $formName = 'test';
+    private $forms;
 
     public function setUp()
     {
         parent::setUp();
 
-        $forms = Forms::getInstance();
-        $forms->add($this->formName, [
+        $this->forms = Forms::getInstance();
+        $this->forms->add($this->formName, [
             'acfForm'          => [
                 'field_groups' => $this->fieldGroups,
             ],
@@ -36,5 +37,12 @@ class DatabaseTest extends TestCase
         acf_save_post($entry->getId());
 
         $this->assertEquals($entry->getFieldGroups(), $this->fieldGroups);
+    }
+
+    public function tearDown()
+    {
+        parent::tearDown();
+
+        $this->forms->remove($this->formName);
     }
 }
