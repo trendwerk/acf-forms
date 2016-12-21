@@ -83,7 +83,6 @@ class RenderersTest extends TestCase
             'sub_fields'    => $subFields,
             'type'          => 'repeater',
             'value'         => $values,
-            'return_format' => 'id',
         ];
 
         $renderer = FieldFactory::create($field);
