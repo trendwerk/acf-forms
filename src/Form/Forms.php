@@ -44,4 +44,13 @@ final class Forms
 
         return $this->forms[$name];
     }
+
+    public function remove($name)
+    {
+        if (! isset($this->forms[$name])) {
+            throw new InvalidArgumentException(sprintf('Removed form \'%s\' is not registered.', $name));
+        }
+
+        unset($this->forms[$name]);
+    }
 }
