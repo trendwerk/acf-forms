@@ -7,6 +7,9 @@ final class Entries
 {
     const POST_TYPE = 'entries';
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function init()
     {
         add_action('init', [$this, 'registerPostType']);
@@ -15,6 +18,9 @@ final class Entries
         add_action('add_meta_boxes_' . self::POST_TYPE, [$this, 'removePublish']);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function registerPostType()
     {
         register_post_type(self::POST_TYPE, [

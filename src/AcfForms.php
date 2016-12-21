@@ -7,6 +7,9 @@ use Trendwerk\AcfForms\Form\Forms;
 
 final class AcfForms
 {
+    /**
+     * @codeCoverageIgnore
+     */
     public function init()
     {
         $entries = new Entries();

@@ -5,6 +5,9 @@ final class Rule
 {
     private $rule = 'acf-form';
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function init()
     {
         add_filter('acf/location/rule_types', [$this, 'add']);
