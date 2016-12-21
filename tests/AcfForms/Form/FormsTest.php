@@ -37,6 +37,12 @@ class FormsTest extends TestCase
         $this->assertEquals($form['acfForm']['field_groups'], $fieldGroups);
     }
 
+    public function testAddNoName()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->forms->add('', []);
+    }
+
     public function testInvalidGet()
     {
         $this->expectException(InvalidArgumentException::class);
