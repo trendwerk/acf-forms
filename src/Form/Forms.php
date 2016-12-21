@@ -25,6 +25,10 @@ final class Forms
 
     public function add($name, array $options)
     {
+        if (strlen($name) === 0) {
+            throw new BadMethodCallException('Form name should be at least one character long.');
+        }
+
         if (! isset($options['acfForm']) || ! isset($options['acfForm']['field_groups'])) {
             throw new BadMethodCallException('acfForm[field_groups] is a required property.');
         }
