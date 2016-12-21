@@ -44,7 +44,6 @@
   "require-dev": {
     "phpunit/phpunit": "5.7.*",
     "squizlabs/php_codesniffer": "2.*",
-    "advanced-custom-fields/advanced-custom-fields-pro": "*",
-    "whatthejeff/nyancat-phpunit-resultprinter": "~1.2"
+    "advanced-custom-fields/advanced-custom-fields-pro": "*"
   }
 }
