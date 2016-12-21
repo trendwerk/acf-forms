@@ -149,6 +149,18 @@ class RenderersTest extends TestCase
         $this->assertEquals('<hr><h2>' . $secondField['label'] . '</h2>', $secondRenderer->render($this->entry));
     }
 
+    public function testEmptyTab()
+    {
+        $field = [
+            'key'   => 'field_tab',
+            'label' => 'Tab',
+            'type'  => 'tab',
+        ];
+
+        $renderer = FieldFactory::create($field);
+        $this->assertNull($renderer->render($this->entry, false));
+    }
+
     public function testTextarea()
     {
         $field = [
