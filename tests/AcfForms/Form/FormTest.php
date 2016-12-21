@@ -7,8 +7,9 @@ use Trendwerk\AcfForms\Test\TestCase;
 
 class FormTest extends TestCase
 {
-    private $form = 'testForm';
     private $fieldGroup = 'testFieldGroup';
+    private $form = 'testForm';
+    private $forms;
 
     public function setUp()
     {
@@ -57,6 +58,7 @@ class FormTest extends TestCase
     {
         parent::tearDown();
 
+        $this->forms->remove($this->form);
         $this->destroyFieldGroup($this->fieldGroup);
     }
 }
