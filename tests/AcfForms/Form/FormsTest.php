@@ -42,4 +42,28 @@ class FormsTest extends TestCase
         $this->expectException(InvalidArgumentException::class);
         $this->forms->get('testGet');
     }
+
+    public function testRemove()
+    {
+        $name = 'test';
+
+        $this->forms->add($name, [
+            'acfForm'          => [
+                'field_groups' => [],
+            ],
+        ]);
+
+        $this->assertArrayHasKey('acfForm', $this->forms->get($name));
+
+        $this->forms->remove($name);
+
+        $this->expectException(InvalidArgumentException::class);
+        $this->forms->get($name);
+    }
+
+    public function testRemoveInvalid()
+    {
+        $this->expectException(InvalidArgumentException::class);
+        $this->forms->remove('testGet');
+    }
 }
