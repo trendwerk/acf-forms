@@ -77,6 +77,31 @@ class RuleTest extends TestCase
         $this->destroyFieldGroup($fieldGroupName);
     }
 
+    public function testInvertedMatch()
+    {
+        $fieldGroupName = 'testFieldGroup';
+
+        $this->createFieldGroup($fieldGroupName, null, [
+            [
+                [
+                    'param'    => $this->rule,
+                    'operator' => '!=',
+                    'value'    => 'true',
+                ],
+            ],
+        ]);
+
+        $entry = $this->createEntry([$fieldGroupName]);
+
+        $visibility = acf_get_field_group_visibility($this->getFieldGroup($fieldGroupName), [
+            'post_id' => $entry->getId(),
+        ]);
+
+        $this->assertFalse($visibility);
+
+        $this->destroyFieldGroup($fieldGroupName);
+    }
+
     public function testDontMatch()
     {
         $fieldGroupName = 'testFieldGroup';
