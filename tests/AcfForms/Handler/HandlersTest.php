@@ -52,6 +52,31 @@ class HandlersTest extends TestCase
         $this->assertTrue($mockHandler->success);
     }
 
+    public function testHandleOtherPostType()
+    {
+        // remove default handlers
+        remove_all_actions('acf/save_post');
+
+        // setup mock handler
+        $mockHandler = new MockHandler();
+
+        $handlers = new Handlers([$mockHandler]);
+        $handlers->init();
+
+        // save post
+        $post = $this->factory->post->create_and_get(['post_type' => 'post']);
+
+        $_POST = [
+            'acf'  => ['testKey' => 'testValue'],
+            'form' => $this->formName,
+        ];
+
+        acf_save_post($post->ID);
+
+        // test non-success
+        $this->assertFalse($mockHandler->success);
+    }
+
     public function tearDown()
     {
         parent::tearDown();
