@@ -20,7 +20,7 @@ class RenderersTest extends TestCase
         $field = [
             'key'   => 'field_firstName',
             'label' => 'First Name',
-            'type'  => 'Text',
+            'type'  => 'text',
             'value' => 'Hallo',
         ];
 
@@ -67,5 +67,58 @@ class RenderersTest extends TestCase
         $this->assertContains($field['label'], $renderer->render($this->entry));
         $this->assertContains($post->post_title, $renderer->render($this->entry));
         $this->assertNotContains($field['label'], $renderer->render($this->entry, false));
+    }
+
+    public function testRepeater()
+    {
+        $post = $this->factory->post->create_and_get();
+
+        $subFields = [
+            [
+                'key'       => 'field_firstName',
+                'label'     => 'First Name',
+                'name'      => 'firstName',
+                'type'      => 'text',
+            ],
+            [
+                'key'       => 'field_lastName',
+                'label'     => 'Last Name',
+                'name'      => 'lastName',
+                'type'      => 'text',
+            ],
+        ];
+
+        $values = [
+            [
+                'firstName' => 'Tester',
+                'lastName'  => 'McTest',
+            ],
+            [
+                'firstName' => 'Foo',
+                'lastName'  => 'Bar',
+            ],
+        ];
+
+        $field = [
+            'key'           => 'field_repeater',
+            'label'         => 'Repeater',
+            'sub_fields'    => $subFields,
+            'type'          => 'repeater',
+            'value'         => $values,
+            'return_format' => 'id',
+        ];
+
+        $renderer = FieldFactory::create($field);
+        $output = $renderer->render($this->entry);
+
+        $this->assertEquals((count($subFields) + 1), substr_count($output, '<tr>'));
+
+        foreach ($subFields as $subField) {
+            $this->assertContains($subField['label'], $output);
+
+            foreach ($values as $value) {
+                $this->assertContains($value[$subField['name']], $output);
+            }
+        }
     }
 }
