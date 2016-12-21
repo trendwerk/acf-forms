@@ -99,6 +99,35 @@ class RenderersTest extends TestCase
         }
     }
 
+    public function testEmptyRepeater()
+    {
+        $subFields = [
+            [
+                'key'       => 'field_firstName',
+                'label'     => 'First Name',
+                'name'      => 'firstName',
+                'type'      => 'text',
+            ],
+            [
+                'key'       => 'field_lastName',
+                'label'     => 'Last Name',
+                'name'      => 'lastName',
+                'type'      => 'text',
+            ],
+        ];
+
+        $field = [
+            'key'           => 'field_repeater',
+            'label'         => 'Repeater',
+            'sub_fields'    => $subFields,
+            'type'          => 'repeater',
+            'value'         => [],
+        ];
+
+        $renderer = FieldFactory::create($field);
+        $this->assertNull($renderer->render($this->entry));
+    }
+
     public function testTab()
     {
         $field = [
