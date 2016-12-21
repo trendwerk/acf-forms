@@ -8,6 +8,8 @@ use Trendwerk\AcfForms\Test\TestCase;
 
 class FormsTest extends TestCase
 {
+    private $forms;
+
     public function setUp()
     {
         parent::setUp();
