@@ -8,20 +8,30 @@ class SanitizerTest extends TestCase
 {
     public function testSanitize()
     {
-        $xssValue = '\'\';!--"<XSS>=&{()}';
+        $xssValue = ['\'\';!--"<XSS>=&{()}'];
         $xssTest = '<XSS';
         $entry = $this->createEntry();
         $field = 'testField';
 
         // without sanitizer
         update_field($field, $xssValue, $entry->getId());
-        $this->assertContains($xssTest, $entry->getField($field));
+
+        $values = $entry->getField($field);
+
+        foreach ($values as $value) {
+            $this->assertContains($xssTest, $value);
+        }
 
         // with sanitizer
         $sanitizer = new Sanitizer();
         $sanitizer->init();
 
         update_field($field, $xssValue, $entry->getId());
-        $this->assertNotContains($xssTest, $entry->getField($field));
+
+        $values = $entry->getField($field);
+
+        foreach ($values as $value) {
+            $this->assertNotContains($xssTest, $value);
+        }
     }
 }
