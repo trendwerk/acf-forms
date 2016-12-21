@@ -7,7 +7,7 @@ use Trendwerk\AcfForms\Test\TestCase;
 
 class DatabaseTest extends TestCase
 {
-    private $fieldGroups = ['testFieldGroup'];
+    private $fieldGroups = ['testFieldGroup', 'anotherFieldGroup'];
     private $formName = 'test';
     private $forms;
 
