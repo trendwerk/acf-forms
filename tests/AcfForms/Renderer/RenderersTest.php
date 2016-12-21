@@ -142,4 +142,36 @@ class RenderersTest extends TestCase
         $this->assertEquals('<h2>' . $field['label'] . '</h2>', $renderer->render($this->entry));
         $this->assertEquals('<hr><h2>' . $secondField['label'] . '</h2>', $secondRenderer->render($this->entry));
     }
+
+    public function testTextarea()
+    {
+        $field = [
+            'key'       => 'field_textarea',
+            'label'     => 'Textarea',
+            'type'      => 'textarea',
+            'value'     => wpautop('A sentence to test.'),
+            'new_lines' => 'wpautop',
+        ];
+
+        $renderer = FieldFactory::create($field);
+
+        $this->assertContains($field['label'], $renderer->render($this->entry));
+        $this->assertContains($field['value'], $renderer->render($this->entry));
+    }
+
+    public function testTextareaWithoutAutoParagraph()
+    {
+        $field = [
+            'key'       => 'field_textarea',
+            'label'     => 'Textarea',
+            'type'      => 'textarea',
+            'value'     => 'A sentence to test.',
+            'new_lines' => '',
+        ];
+
+        $renderer = FieldFactory::create($field);
+
+        $this->assertContains($field['label'], $renderer->render($this->entry));
+        $this->assertContains($field['value'], wpautop($renderer->render($this->entry)));
+    }
 }
