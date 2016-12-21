@@ -26,7 +26,7 @@ class FormsTest extends TestCase
     public function testAdd()
     {
         $name = 'test';
-        $fieldGroups = ['test_field_group'];
+        $fieldGroups = ['testFieldGroup'];
 
         $this->forms->add($name, [
             'acfForm'          => [
