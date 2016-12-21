@@ -37,6 +37,8 @@ class FormsTest extends TestCase
         $form = $this->forms->get($name);
 
         $this->assertEquals($form['acfForm']['field_groups'], $fieldGroups);
+
+        $this->forms->remove($name);
     }
 
     public function testAddNoName()
