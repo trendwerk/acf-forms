@@ -121,4 +121,25 @@ class RenderersTest extends TestCase
             }
         }
     }
+
+    public function testTab()
+    {
+        $field = [
+            'key'   => 'field_tab',
+            'label' => 'Tab',
+            'type'  => 'tab',
+        ];
+
+        $secondField = [
+            'key'   => 'field_secondTab',
+            'label' => 'Second Tab',
+            'type'  => 'tab',
+        ];
+
+        $renderer = FieldFactory::create($field);
+        $secondRenderer = FieldFactory::create($secondField);
+
+        $this->assertEquals('<h2>' . $field['label'] . '</h2>', $renderer->render($this->entry));
+        $this->assertEquals('<hr><h2>' . $secondField['label'] . '</h2>', $secondRenderer->render($this->entry));
+    }
 }
