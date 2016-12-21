@@ -51,8 +51,6 @@ class RenderersTest extends TestCase
 
     public function testRepeater()
     {
-        $post = $this->factory->post->create_and_get();
-
         $subFields = [
             [
                 'key'       => 'field_firstName',
