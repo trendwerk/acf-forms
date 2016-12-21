@@ -15,11 +15,11 @@ final class AcfForms
         $entries = new Entries();
         $entries->init();
 
-        $handler = new Handler\Handlers([
+        $handlers = new Handler\Handlers([
             new Handler\Database(),
             new Handler\Notifications(),
         ]);
-        $handler->init();
+        $handlers->init();
 
         $rule = new Rule();
         $rule->init();
