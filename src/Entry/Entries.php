@@ -61,6 +61,9 @@ final class Entries
         return array_merge($newActions, $actions);
     }
 
+    /**
+     * @codeCoverageIgnore
+     */
     public function removePublish()
     {
         remove_meta_box('submitdiv', self::POST_TYPE, 'side');
