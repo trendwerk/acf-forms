@@ -52,6 +52,21 @@ class EntriesTest extends TestCase
         $this->assertNotContains('editinline', $output);
     }
 
+    public function testSkipRowActionsForOtherPostTypes()
+    {
+        $post = $this->factory->post->create_and_get([
+            'post_type' => 'nav_menu_item', //any non-public post type
+        ]);
+
+        ob_start();
+        $this->table->single_row($post);
+        $output = ob_get_clean();
+
+        $this->assertNotContains('<span class=\'view\'>', $output);
+        $this->assertContains('<span class=\'edit\'>', $output);
+        $this->assertContains('editinline', $output);
+    }
+
     public function tearDown()
     {
         parent::tearDown();
