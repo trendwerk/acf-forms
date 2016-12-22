@@ -59,7 +59,7 @@ class AdminTest extends TestCase
         $sent = $mailer->get_sent();
 
         $this->assertContains(get_option('admin_email'), $sent->to[0]);
-        $this->assertContains($this->fieldGroup, $sent->subject);
+        $this->assertContains($entry->getTitle(), $sent->subject);
         $this->assertContains($expectedValue, $sent->body);
 
         foreach ($this->fields as $field) {
