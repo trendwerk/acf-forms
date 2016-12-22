@@ -1,4 +1,6 @@
 # ACF Forms
+[![Build Status](https://travis-ci.org/trendwerk/acf-forms.svg?branch=master)](https://travis-ci.org/trendwerk/acf-forms)
+
 Helper package to use ACF forms in the front-end. What it does:
 
 - Adds the ability to send notifications
@@ -7,8 +9,6 @@ Helper package to use ACF forms in the front-end. What it does:
 - Adds a wrapper around [`acf_form`](https://www.advancedcustomfields.com/resources/acf_form/) that does the repetitive work
 
 **This package requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) v5 to be installed.**
-
-[![Build Status](https://travis-ci.org/trendwerk/acf-forms.svg?branch=master)](https://travis-ci.org/trendwerk/acf-forms)
 
 Quick links: [Install](#install) | [Usage](#usage) | [Options](#options) | [Example](#example)
 
