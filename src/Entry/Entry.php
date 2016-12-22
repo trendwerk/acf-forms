@@ -72,6 +72,6 @@ final class Entry
         $date = get_the_date(null, $this->id);
         $time = get_the_time(null, $this->id);
 
-        return sprintf(__('%1$s at %2$s on %3$s', 'acf-forms'), $name, $date, $time);
+        return sprintf(__('%1$s on %2$s at %3$s', 'acf-forms'), $name, $date, $time);
     }
 }
