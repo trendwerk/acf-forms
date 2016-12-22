@@ -12,5 +12,7 @@ final class Database implements HandlerInterface
         if ($fieldGroups) {
             $entry->setFieldGroups($fieldGroups);
         }
+
+        $entry->setForm($form['name']);
     }
 }
