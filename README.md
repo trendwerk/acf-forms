@@ -25,7 +25,7 @@ $acfForms = new \Trendwerk\AcfForms\AcfForms();
 $acfForms->init();
 ```
 
-This creates the `entries` post type and sets up defaults form handlers and notifications.
+This code should be run when bootstrapping your theme (traditionally done via `functions.php`). Initialization creates the `entries` post type and sets up defaults form handlers and notifications.
 
 ### Register form
 ```php
