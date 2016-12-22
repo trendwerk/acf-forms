@@ -51,4 +51,14 @@ class EntryTest extends TestCase
 
         $this->assertEquals($entry->getField($field), $value);
     }
+
+    public function testForm()
+    {
+        $form = 'contact';
+
+        $entry = Entry::find($this->postId);
+        $entry->setForm($form);
+
+        $this->assertEquals($entry->getForm(), $form);
+    }
 }
