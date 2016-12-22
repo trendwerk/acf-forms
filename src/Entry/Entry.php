@@ -1,6 +1,9 @@
 <?php
 namespace Trendwerk\AcfForms\Entry;
 
+use InvalidArgumentException;
+use Trendwerk\AcfForms\Form\Forms;
+
 final class Entry
 {
     private $id;
@@ -51,7 +54,21 @@ final class Entry
 
     public function getTitle()
     {
-        $name = implode(', ', $this->getFieldGroups());
+        $forms = Forms::getInstance();
+        $form = $this->getForm();
+        
+        try {
+            $form = $forms->get($form);
+
+            if (isset($form['label'])) {
+                $name = $form['label'];
+            } else {
+                $name = $form['name'];
+            }
+        } catch (InvalidArgumentException $e) {
+            $name = $form;
+        }
+
         $date = get_the_date(null, $this->id);
         $time = get_the_time(null, $this->id);
 
