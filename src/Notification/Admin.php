@@ -25,13 +25,6 @@ class Admin extends Notification
 
     protected function getSubject()
     {
-        $fieldGroups = $this->entry->getFieldGroups();
-        $fieldGroupNames = array_map(function ($fieldGroup) {
-            $fieldGroupObject = acf_get_field_group($fieldGroup);
-
-            return $fieldGroupObject['title'];
-        }, $fieldGroups);
-
-        return sprintf(__('Filled in form: %1$s', 'acf-forms'), implode(', ', $fieldGroupNames));
+        return sprintf(__('Filled in form: %1$s', 'acf-forms'), $this->entry->getTitle());
     }
 }
