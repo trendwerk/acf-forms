@@ -33,7 +33,7 @@ $acfForms->init();
 This code should be run when bootstrapping your theme (traditionally done via `functions.php`). Initialization creates the `entries` post type and sets up defaults form handlers and notifications.
 
 ### Create field group
-Create a new field group in Advanced Custom Fields. When choosing a location where to show this field group, make sure you use `Forms > Front-end` is `Yes`.
+Create a new field group in Advanced Custom Fields. When choosing a location where to show this field group, make sure you use `Forms > Front-end` is equal to `Yes`.
 
 ### Register form
 ```php
