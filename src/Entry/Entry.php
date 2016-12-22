@@ -40,6 +40,10 @@ final class Entry
 
     public function getTitle()
     {
-        return sprintf(__('%1$s at %2$s on %3$s', 'acf-forms'), implode(', ', $this->getFieldGroups()), get_the_date(null, $this->id), get_the_time(null, $this->id));
+        $name = implode(', ', $this->getFieldGroups());
+        $date = get_the_date(null, $this->id);
+        $time = get_the_time(null, $this->id);
+
+        return sprintf(__('%1$s at %2$s on %3$s', 'acf-forms'), $name, $date, $time);
     }
 }
