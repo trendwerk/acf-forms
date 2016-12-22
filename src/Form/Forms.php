@@ -29,10 +29,15 @@ final class Forms
             throw new InvalidArgumentException('Form name should be at least one character long.');
         }
 
+        if (isset($options['name'])) {
+            throw new BadMethodCallException('The property `name` is a reservered keyword and should not be set.');
+        }
+
         if (! isset($options['acfForm']) || ! isset($options['acfForm']['field_groups'])) {
             throw new BadMethodCallException('acfForm[field_groups] is a required property.');
         }
 
+        $options['name'] = $name;
         $this->forms[$name] = $options;
     }
 
