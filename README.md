@@ -7,6 +7,8 @@ Helper package to use ACF forms in the front-end. What it does:
 
 **This package requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) v5 to be installed.**
 
+[![Build Status](https://travis-ci.org/trendwerk/acf-forms.svg?branch=master)](https://travis-ci.org/trendwerk/acf-forms)
+
 Quick links: [Install](#install) | [Usage](#usage) | [Options](#options) | [Example](#example)
 
 ## Install
