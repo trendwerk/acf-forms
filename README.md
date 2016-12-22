@@ -80,6 +80,7 @@ $acfForms->register('contact', [
     'acfForm'          => [
         'field_groups' => ['group_565474dcb9dd0'],
     ],
+    'label'            => 'Contact',
 ]);
 ```
 
