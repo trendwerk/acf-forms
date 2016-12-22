@@ -69,7 +69,7 @@ In reality, the `render` method will be called somewhere inside your actual temp
 
 
 ## Example
-The example below walks through all three steps of creating and showing a form, based on a field group. This example uses Twig, [Timber](https://github.com/timber/timber) and [Sphynx](https://github.com/trendwerk/sphynx).
+The example below walks through all three steps of creating and showing a form, based on a field group. This example uses [Twig](https://github.com/twigphp/Twig), [Timber](https://github.com/timber/timber) and [Sphynx](https://github.com/trendwerk/sphynx).
 
 #### `functions.php`
 ```php
