@@ -66,7 +66,7 @@ In reality, the `render` method will be called somewhere inside your actual temp
 | `notifications` | `['Trendwerk\\AcfForms\\Notification\\Admin']` | No | Notifications that are sent via e-mail after form submission. See [Notifications](#notifications)
 
 ### Notifications
-
+Notifications can be created by extending the [`Notification`](https://github.com/trendwerk/acf-forms/blob/master/src/Notification/Notification.php) abstract class or the default [Admin](https://github.com/trendwerk/acf-forms/blob/master/src/Notification/Admin.php) notification class.
 
 ## Example
 The example below walks through all three steps of creating and showing a form, based on a field group. This example uses [Twig](https://github.com/twigphp/Twig), [Timber](https://github.com/timber/timber) and [Sphynx](https://github.com/trendwerk/sphynx).
