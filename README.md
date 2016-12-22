@@ -17,11 +17,12 @@ composer require trendwerk/acf-forms
 ```
 
 ## Usage
-Creating and showing a form with this package consists of three parts:
+Creating and showing a form with this package consists of four parts:
 
 1. [Initialize package](#initialize)
-2. [Register form](#register-form)
-3. [Render form](#render)
+2. [Create field group](#create-field-group)
+3. [Register form](#register-form)
+4. [Render form](#render)
 
 ### Initialize
 ```php
@@ -31,6 +32,9 @@ $acfForms->init();
 
 This code should be run when bootstrapping your theme (traditionally done via `functions.php`). Initialization creates the `entries` post type and sets up defaults form handlers and notifications.
 
+### Create field group
+Create a new field group in Advanced Custom Fields. When choosing a location where to show this field group, make sure you use `Forms > Front-end` is `Yes`.
+
 ### Register form
 ```php
 $acfForms->register($name, $options);
@@ -39,7 +43,7 @@ $acfForms->register($name, $options);
 | Parameter | Default | Required | Description |
 | :--- | :--- | :--- | :--- |
 | `$name` | `null` | Yes | (Unique) name / slug of the form
-| `$options` | `null` | Yes | Array with options. See [Options](#options)
+| `$options` | `null` | Yes | Array with options. See [Options](#options). **`field_groups` is a required property.**
 
 
 ### Render
