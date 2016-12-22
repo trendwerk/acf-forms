@@ -69,5 +69,51 @@ In reality, the `render` method will be called somewhere inside your actual temp
 
 
 ## Example
+The example below walks through all three steps of creating and showing a form. This example uses Twig, [Timber](https://github.com/timber/timber) and [Sphynx](https://github.com/trendwerk/sphynx).
+
+#### `functions.php`
 ```php
-````
+$acfForms = new \Trendwerk\AcfForms\AcfForms();
+$acfForms->init();
+
+$acfForms->register('contact', [
+    'acfForm'          => [
+        'field_groups' => ['group_565474dcb9dd0'],
+    ],
+]);
+```
+
+Field group keys can be found when showing the `slug` of the field group or in the corresponding JSON file.
+
+#### `page-contact.php`
+```php
+<?php
+// Template name: Contact
+
+use Timber\Post;
+use Trendwerk\AcfForms\Form\Form;
+
+Form::head();
+
+$context = Timber::get_context();
+$context['post'] = new Post();
+$context['form'] = new Form('contact');
+
+Timber::render('page-contact.twig', $context);
+
+```
+
+#### `page-contact.twig`
+```twig
+{% extends 'base.twig' %}
+
+{% block content %}
+  <h1>
+    {{ post.title }}
+  </h1>
+
+  {{ post.content }}
+
+  {{ form.render() }}
+{% endblock %}
+```
