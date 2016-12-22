@@ -3,6 +3,7 @@ namespace Trendwerk\AcfForms\Test\Entry;
 
 use Trendwerk\AcfForms\Entry\Entries;
 use Trendwerk\AcfForms\Entry\Entry;
+use Trendwerk\AcfForms\Form\Forms;
 use Trendwerk\AcfForms\Test\TestCase;
 
 class EntryTest extends TestCase
@@ -60,5 +61,60 @@ class EntryTest extends TestCase
         $entry->setForm($form);
 
         $this->assertEquals($entry->getForm(), $form);
+    }
+
+    public function testTitle()
+    {
+        $form = 'contact';
+        $label = 'Contact';
+
+        $date = get_the_date(null, $this->postId);
+        $time = get_the_time(null, $this->postId);
+
+        $forms = Forms::getInstance();
+        $forms->add($form, [
+            'acfForm'          => [
+                'field_groups' => [],
+            ],
+            'label'            => $label,
+        ]);
+
+        $entry = Entry::find($this->postId);
+        $entry->setForm($form);
+
+        $this->assertContains($label, $entry->getTitle());
+        $this->assertContains($date, $entry->getTitle());
+        $this->assertContains($time, $entry->getTitle());
+
+        $forms->remove($form);
+    }
+
+    public function testTitleNoLabel()
+    {
+        $form = 'contact';
+
+        $forms = Forms::getInstance();
+        $forms->add($form, [
+            'acfForm'          => [
+                'field_groups' => [],
+            ],
+        ]);
+
+        $entry = Entry::find($this->postId);
+        $entry->setForm($form);
+
+        $this->assertContains($form, $entry->getTitle());
+
+        $forms->remove($form);
+    }
+
+    public function testTitleInvalidForm()
+    {
+        $form = 'contact';
+
+        $entry = Entry::find($this->postId);
+        $entry->setForm($form);
+
+        $this->assertContains($form, $entry->getTitle());
     }
 }
