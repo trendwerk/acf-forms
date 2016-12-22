@@ -37,6 +37,7 @@ class DatabaseTest extends TestCase
         acf_save_post($entry->getId());
 
         $this->assertEquals($entry->getFieldGroups(), $this->fieldGroups);
+        $this->assertEquals($entry->getForm(), $this->formName);
     }
 
     public function tearDown()
