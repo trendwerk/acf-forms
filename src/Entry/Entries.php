@@ -41,7 +41,7 @@ final class Entries
 
     public function title($title, $id)
     {
-        if (get_post_type($post->ID) !== self::POST_TYPE) {
+        if (get_post_type($id) !== self::POST_TYPE) {
             return $title;
         }
 
