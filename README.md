@@ -4,6 +4,7 @@ Helper package to use ACF forms in the front-end. What it does:
 - Adds the ability to send notifications
 - A default "Admin" notification
 - Saves entries to the database
+- Adds a wrapper around [`acf_form`](https://www.advancedcustomfields.com/resources/acf_form/) that does the repetitive work
 
 **This package requires [Advanced Custom Fields Pro](https://www.advancedcustomfields.com/pro/) v5 to be installed.**
 
