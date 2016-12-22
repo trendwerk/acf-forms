@@ -37,4 +37,9 @@ final class Entry
     {
         update_post_meta($this->id, $this->keys['fieldGroups'], $fieldGroups);
     }
+
+    public function getTitle()
+    {
+        return sprintf(__('%1$s at %2$s on %3$s', 'acf-forms'), implode(', ', $this->getFieldGroups()), get_the_date(null, $this->id), get_the_time(null, $this->id));
+    }
 }

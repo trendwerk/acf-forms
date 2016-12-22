@@ -13,6 +13,7 @@ final class Entries
     public function init()
     {
         add_action('init', [$this, 'registerPostType']);
+        add_filter('the_title', [$this, 'title'], 10, 2);
         add_filter('bulk_actions-edit-' . self::POST_TYPE, [$this, 'removeBulkEdit']);
         add_filter('post_row_actions', [$this, 'setRowActions'], 10, 2);
         add_action('add_meta_boxes_' . self::POST_TYPE, [$this, 'removePublish']);
@@ -36,6 +37,17 @@ final class Entries
             'show_ui'          => true,
             'supports'         => array('title'),
         ]);
+    }
+
+    public function title($title, $id)
+    {
+        if (get_post_type($post->ID) !== self::POST_TYPE) {
+            return $title;
+        }
+
+        $entry = Entry::find($id);
+
+        return $entry->getTitle();
     }
 
     public function removeBulkEdit(array $actions)
