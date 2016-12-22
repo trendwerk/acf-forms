@@ -47,6 +47,12 @@ class FormsTest extends TestCase
         $this->forms->add('', []);
     }
 
+    public function testAddNameProperty()
+    {
+        $this->expectException(BadMethodCallException::class);
+        $this->forms->add('test', ['name' => 'test']);
+    }
+
     public function testInvalidGet()
     {
         $this->expectException(InvalidArgumentException::class);
