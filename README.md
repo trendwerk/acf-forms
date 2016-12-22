@@ -61,7 +61,7 @@ In reality, the `render` method will be called somewhere inside your actual temp
 
 | Parameter | Default | Required | Description |
 | :--- | :--- | :--- | :--- |
-| `acfForm` | `null` | Yes | Options passed to the `acf_form`(https://www.advancedcustomfields.com/resources/acf_form/) function. **`field_groups` is a required property.**
+| `acfForm` | `null` | Yes | Options passed to the [`acf_form`](https://www.advancedcustomfields.com/resources/acf_form/) function. **`field_groups` is a required property.**
 | `label` | `null` | No | Label used in the e-mail subject and entry title. If left empty, the unique form name will be used
 | `notifications` | `['Trendwerk\\AcfForms\\Notification\\Admin']` | No | Notifications that are sent via e-mail after form submission. See [Notifications](#notifications)
 
