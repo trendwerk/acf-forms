@@ -8,6 +8,8 @@ use Trendwerk\AcfForms\Form\Forms;
 
 final class Handlers
 {
+    const AFTER_ACF = 11;
+
     private $handlers;
 
     public function __construct(array $handlers = [])
@@ -17,7 +19,7 @@ final class Handlers
 
     public function init()
     {
-        add_action('acf/save_post', [$this, 'handle']);
+        add_action('acf/save_post', [$this, 'handle'], self::AFTER_ACF);
     }
 
     public function handle($postId)
