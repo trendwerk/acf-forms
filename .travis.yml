@@ -14,7 +14,10 @@ php:
   - 7.0
 
 env:
-  - WP_VERSION=latest WP_MULTISITE=0
+  matrix:
+    - WP_VERSION=latest WP_MULTISITE=0
+  global:
+    secure: uCB6v1TiyzSlUFqCQza6CxsTWtLuwAqgepbPbTufAV0mijo8zY0wwuhgSK5cmMjVN1Jjo52imJps/7TfLeA/9yXvo8atHXnI6SaZy8X+byslZWK5ZDzuJdH7oC93kcvuV6Y3DWfB8Qa54kos8wDZwpXXNz7Sy5ePZhoMMS8HSYnjdgi80jjrxfN12FcEiKIRf2+d7Mk+FEyQ6sLXuZV0VaFNygFF3vVk4wQQDngdlXM2Plqpf2GNHhHf/+L+554E3kq5eQLXX8NB+2Yt5i1PSu5uz1i9vZsXbAKqGmWaqJta6d2JGZEw7AP6hAhd+ejK5BRaanTkJiscaD/doGRGxvgs5ugD2xnNP3uTRKyM4BqID78OV8IOSLe/lwMeCaRw3XtPquDatFFzDrFb78OW2lMgV1Tu8F/PtedwJzHxqj/HgxE97OLDdMmM8nmqf4fi9HTsqf9lIkFBTD9UGbcyMbYjrmZcw2t6h3QnvLGqaxP0pt18cVAz509QOc3FvHVWnaZELhVtRBiXs7cqdhUjx8gPjWC9wJut/c2FiFGUAkT+my7Rfee1e9gmhzMqwfLhgnC9llqRnWA0oAjbs2OD5BoJw1/69xQn1hDfUvo96qonaimc2OBWJurNBRpFslp3Ij4DhEeC75sBNtuttOU8rSTQTR5d/DDBVIapiSUNagA=
 
 matrix:
   include:
@@ -27,4 +30,7 @@ before_script:
 
 script:
   - vendor/bin/phpcs --standard=PSR2 $(find src tests -name '*.php')
-  - phpunit
+  - vendor/bin/phpunit --coverage-clover clover.xml
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
