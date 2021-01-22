@@ -35,7 +35,7 @@ final class Entries
             'map_meta_cap'     => true,
             'menu_icon'        => 'dashicons-clipboard',
             'show_ui'          => true,
-            'supports'         => array('title'),
+            'supports'         => false,
         ]);
     }
 
