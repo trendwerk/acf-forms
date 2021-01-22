@@ -1,4 +1,6 @@
 # ACF Forms
+**Active development for this package has been discontinued.**
+
 Helper package to use ACF forms in the front-end. What it does:
 
 - Adds the ability to send notifications
