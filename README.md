@@ -1,5 +1,5 @@
 # ACF Forms
-[![Build Status](https://travis-ci.org/trendwerk/acf-forms.svg?branch=master)](https://travis-ci.org/trendwerk/acf-forms) [![codecov](https://codecov.io/gh/trendwerk/acf-forms/branch/master/graph/badge.svg)](https://codecov.io/gh/trendwerk/acf-forms)
+**Active development for this package has been discontinued.**
 
 Helper package to use ACF forms in the front-end. What it does:
 
